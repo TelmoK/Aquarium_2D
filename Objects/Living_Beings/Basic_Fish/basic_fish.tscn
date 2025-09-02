@@ -1,0 +1,37 @@
+[gd_scene load_steps=9 format=3 uid="uid://bdcmgdddlv0cg"]
+
+[ext_resource type="Script" uid="uid://dfhjryxk5s327" path="res://Objects/Living_Beings/Basic_Fish/basic_fish.gd" id="1_j0047"]
+[ext_resource type="PackedScene" uid="uid://duxy2jyd6a16y" path="res://Systems/Gene_System/diet_gene.tscn" id="2_fpwql"]
+[ext_resource type="Script" uid="uid://hrnh8v46weef" path="res://Objects/Living_Beings/living_being.gd" id="2_fquxk"]
+[ext_resource type="PackedScene" uid="uid://bc3jde060tfl" path="res://Systems/Gene_System/displacement_speed_gene.tscn" id="3_ferr2"]
+[ext_resource type="PackedScene" uid="uid://dykuejtnjlnc2" path="res://Systems/Gene_System/longevity_gene.tscn" id="4_muetl"]
+[ext_resource type="PackedScene" uid="uid://de5ddc7cnk6nx" path="res://Systems/Gene_System/fear_gene.tscn" id="5_w6cn4"]
+[ext_resource type="PackedScene" uid="uid://g6ntafs7qjsq" path="res://Systems/Status_Parameter_System/age_status.tscn" id="6_yxso1"]
+[ext_resource type="Script" uid="uid://cfjpxx0dlnxj3" path="res://Systems/Status_Parameter_System/health_status_parameter.gd" id="7_dvjee"]
+
+[node name="Basic_Fish" type="CharacterBody2D"]
+script = ExtResource("1_j0047")
+living_being = ExtResource("2_fquxk")
+
+[node name="Brain" type="Node" parent="."]
+
+[node name="Genome" type="Node" parent="."]
+
+[node name="Diet_Gene" parent="Genome" instance=ExtResource("2_fpwql")]
+
+[node name="Displacement_Speed_Gene" parent="Genome" instance=ExtResource("3_ferr2")]
+
+[node name="Longevity_Gene" parent="Genome" instance=ExtResource("4_muetl")]
+
+[node name="Fear_Gene" parent="Genome" instance=ExtResource("5_w6cn4")]
+
+[node name="Status_Parameters" type="Node" parent="."]
+
+[node name="Age_Status" parent="Status_Parameters" instance=ExtResource("6_yxso1")]
+
+[node name="Health_Status" type="Node" parent="Status_Parameters"]
+script = ExtResource("7_dvjee")
+
+[node name="Organs" type="Node2D" parent="."]
+
+[node name="Anatomy" type="Node" parent="."]

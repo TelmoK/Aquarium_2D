@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dykuejtnjlnc2"]
+
+[ext_resource type="Script" uid="uid://ct3vw7x0kpv3k" path="res://Systems/Gene_System/longevity_gene.gd" id="1_8haix"]
+
+[node name="Longevity_Gene" type="Node"]
+script = ExtResource("1_8haix")

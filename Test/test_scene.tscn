@@ -1,0 +1,83 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbwa35nr54bue"]
+
+[ext_resource type="Script" uid="uid://qqejjf81ffds" path="res://Systems/Camera_System/camera_control.gd" id="1_d38du"]
+[ext_resource type="Script" uid="uid://cqackkb1t4kt" path="res://Systems/Depth_System/depth_system.gd" id="1_jsoud"]
+[ext_resource type="Texture2D" uid="uid://jowujbif4sx2" path="res://Test/test_sand.png" id="2_d38du"]
+[ext_resource type="Texture2D" uid="uid://bgno2q2r1isf3" path="res://icon.svg" id="4_u5yuk"]
+[ext_resource type="PackedScene" uid="uid://bdcmgdddlv0cg" path="res://Objects/Living_Beings/Basic_Fish/basic_fish.tscn" id="5_0s61m"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(321, 452)
+zoom = Vector2(1.76, 1.76)
+limit_top = 0
+limit_bottom = 660
+limit_smoothed = true
+
+[node name="Camera_Control" type="Node" parent="Camera2D" node_paths=PackedStringArray("camera")]
+script = ExtResource("1_d38du")
+camera = NodePath("..")
+
+[node name="Depth_System" type="Node2D" parent="." node_paths=PackedStringArray("camera", "depth_layers")]
+script = ExtResource("1_jsoud")
+camera = NodePath("../Camera2D")
+depth_layers = [NodePath("Depth_Layer_00"), NodePath("Depth_Layer_01"), NodePath("Depth_Layer_02"), NodePath("Depth_Layer_03"), NodePath("Depth_Layer_04"), NodePath("Depth_Layer_05")]
+
+[node name="Depth_Layer_05" type="Node2D" parent="Depth_System"]
+
+[node name="TestSand" type="Sprite2D" parent="Depth_System/Depth_Layer_05"]
+modulate = Color(0.423651, 0.423651, 0.42365, 1)
+position = Vector2(581, 652)
+scale = Vector2(18.25, 2.04)
+texture = ExtResource("2_d38du")
+
+[node name="Depth_Layer_04" type="Node2D" parent="Depth_System"]
+
+[node name="TestSand" type="Sprite2D" parent="Depth_System/Depth_Layer_04"]
+modulate = Color(0.513233, 0.513233, 0.513232, 1)
+position = Vector2(581, 652)
+scale = Vector2(18.25, 2.04)
+texture = ExtResource("2_d38du")
+
+[node name="Depth_Layer_03" type="Node2D" parent="Depth_System"]
+
+[node name="TestSand" type="Sprite2D" parent="Depth_System/Depth_Layer_03"]
+modulate = Color(0.625597, 0.625597, 0.625597, 1)
+position = Vector2(581, 652)
+scale = Vector2(18.25, 2.04)
+texture = ExtResource("2_d38du")
+
+[node name="Icon" type="Sprite2D" parent="Depth_System/Depth_Layer_03"]
+position = Vector2(175, 479)
+scale = Vector2(0.621094, 0.609375)
+texture = ExtResource("4_u5yuk")
+
+[node name="Depth_Layer_02" type="Node2D" parent="Depth_System"]
+
+[node name="TestSand" type="Sprite2D" parent="Depth_System/Depth_Layer_02"]
+modulate = Color(0.716296, 0.716296, 0.716296, 1)
+position = Vector2(581, 652)
+scale = Vector2(18.25, 2.04)
+texture = ExtResource("2_d38du")
+
+[node name="Icon" type="Sprite2D" parent="Depth_System/Depth_Layer_02"]
+position = Vector2(174, 454)
+texture = ExtResource("4_u5yuk")
+
+[node name="Depth_Layer_01" type="Node2D" parent="Depth_System"]
+
+[node name="TestSand" type="Sprite2D" parent="Depth_System/Depth_Layer_01"]
+modulate = Color(0.838897, 0.838897, 0.838897, 1)
+position = Vector2(581, 652)
+scale = Vector2(18.25, 2.04)
+texture = ExtResource("2_d38du")
+
+[node name="Depth_Layer_00" type="Node2D" parent="Depth_System"]
+
+[node name="TestSand" type="Sprite2D" parent="Depth_System/Depth_Layer_00"]
+position = Vector2(581, 652)
+scale = Vector2(18.25, 2.04)
+texture = ExtResource("2_d38du")
+
+[node name="Basic_Fish" parent="." instance=ExtResource("5_0s61m")]

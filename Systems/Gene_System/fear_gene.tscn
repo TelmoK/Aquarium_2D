@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://de5ddc7cnk6nx"]
+
+[ext_resource type="Script" uid="uid://bmfgsrlycds5l" path="res://Systems/Gene_System/fear_gene.gd" id="1_1kc2j"]
+
+[node name="Fear_Gene" type="Node"]
+script = ExtResource("1_1kc2j")

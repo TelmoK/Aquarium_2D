@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bc3jde060tfl"]
+
+[ext_resource type="Script" uid="uid://cq6xqn533v7ou" path="res://Systems/Gene_System/displacement_speed_gene.gd" id="1_0u8rp"]
+
+[node name="Displacement_Speed_Gene" type="Node"]
+script = ExtResource("1_0u8rp")

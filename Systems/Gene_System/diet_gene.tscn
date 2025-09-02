@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://duxy2jyd6a16y"]
+
+[ext_resource type="Script" uid="uid://dwo6wmeqgkgnn" path="res://Systems/Gene_System/diet_gene.gd" id="1_waryl"]
+
+[node name="Diet_Gene" type="Node"]
+script = ExtResource("1_waryl")

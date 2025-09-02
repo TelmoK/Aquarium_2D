@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://g6ntafs7qjsq"]
+
+[ext_resource type="Script" uid="uid://bsb1hf3h2v1rg" path="res://Systems/Status_Parameter_System/age_status_parameter.gd" id="1_it0gh"]
+
+[node name="Age_Status" type="Node"]
+script = ExtResource("1_it0gh")
