@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bdcmgdddlv0cg"]
+[gd_scene load_steps=10 format=3 uid="uid://bdcmgdddlv0cg"]
 
 [ext_resource type="Script" uid="uid://dfhjryxk5s327" path="res://Objects/Living_Beings/Basic_Fish/basic_fish.gd" id="1_j0047"]
 [ext_resource type="PackedScene" uid="uid://duxy2jyd6a16y" path="res://Systems/Gene_System/diet_gene.tscn" id="2_fpwql"]
-[ext_resource type="Script" uid="uid://hrnh8v46weef" path="res://Objects/Living_Beings/living_being.gd" id="2_fquxk"]
+[ext_resource type="PackedScene" uid="uid://d1kr2ijxvatkp" path="res://Systems/Living_Being_System/anatomy.tscn" id="2_fquxk"]
+[ext_resource type="Texture2D" uid="uid://dwypq023bwsg5" path="res://Test/test_fish.png" id="2_w2bvs"]
 [ext_resource type="PackedScene" uid="uid://bc3jde060tfl" path="res://Systems/Gene_System/displacement_speed_gene.tscn" id="3_ferr2"]
 [ext_resource type="PackedScene" uid="uid://dykuejtnjlnc2" path="res://Systems/Gene_System/longevity_gene.tscn" id="4_muetl"]
 [ext_resource type="PackedScene" uid="uid://de5ddc7cnk6nx" path="res://Systems/Gene_System/fear_gene.tscn" id="5_w6cn4"]
@@ -11,7 +12,15 @@
 
 [node name="Basic_Fish" type="CharacterBody2D"]
 script = ExtResource("1_j0047")
-living_being = ExtResource("2_fquxk")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_w2bvs")
+
+[node name="Anatomy" parent="." node_paths=PackedStringArray("brain", "genome", "status", "organs") instance=ExtResource("2_fquxk")]
+brain = NodePath("../Brain")
+genome = NodePath("../Genome")
+status = NodePath("../Status_Parameters")
+organs = NodePath("../Organs")
 
 [node name="Brain" type="Node" parent="."]
 
@@ -27,11 +36,10 @@ living_being = ExtResource("2_fquxk")
 
 [node name="Status_Parameters" type="Node" parent="."]
 
-[node name="Age_Status" parent="Status_Parameters" instance=ExtResource("6_yxso1")]
+[node name="Age_Status" parent="Status_Parameters" node_paths=PackedStringArray("anatomy") instance=ExtResource("6_yxso1")]
+anatomy = NodePath("../../Anatomy")
 
 [node name="Health_Status" type="Node" parent="Status_Parameters"]
 script = ExtResource("7_dvjee")
 
 [node name="Organs" type="Node2D" parent="."]
-
-[node name="Anatomy" type="Node" parent="."]

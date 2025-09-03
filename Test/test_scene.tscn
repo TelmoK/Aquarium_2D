@@ -81,3 +81,4 @@ scale = Vector2(18.25, 2.04)
 texture = ExtResource("2_d38du")
 
 [node name="Basic_Fish" parent="." instance=ExtResource("5_0s61m")]
+position = Vector2(415, 443)

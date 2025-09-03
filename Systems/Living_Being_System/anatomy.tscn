@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1kr2ijxvatkp"]
+
+[ext_resource type="Script" uid="uid://hrnh8v46weef" path="res://Systems/Living_Being_System/anatomy.gd" id="1_r4kjm"]
+
+[node name="Anatomy" type="Node"]
+script = ExtResource("1_r4kjm")
