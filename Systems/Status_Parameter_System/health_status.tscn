@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3jbyxhuiw6bk"]
+
+[ext_resource type="Script" uid="uid://cfjpxx0dlnxj3" path="res://Systems/Status_Parameter_System/health_status_parameter.gd" id="1_kevre"]
+
+[node name="Health_Status" type="Node"]
+script = ExtResource("1_kevre")

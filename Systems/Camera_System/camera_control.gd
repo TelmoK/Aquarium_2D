@@ -22,16 +22,16 @@ func handle_movement(delta: float):
 	
 	var move = direction * MOVE_SPEED * delta
 	
-	if (
+	"""	if (
 		camera.global_position.y + get_viewport().get_visible_rect().size.y * 0.3 > camera.limit_bottom
 		or camera.global_position.y - get_viewport().get_visible_rect().size.y * 0.3 > camera.limit_top
 	):
 		print("LIMIT REACHED")
+		"""
 	
 	# Move the camera based on input and speed
 	target_cam_pos += move#direction * MOVE_SPEED * delta
 	camera.global_position = lerp(camera.global_position, target_cam_pos, SMOOTHNESS * delta)
-	
 	
 
 
