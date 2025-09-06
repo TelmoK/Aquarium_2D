@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdcmgdddlv0cg"]
+[gd_scene load_steps=11 format=3 uid="uid://bdcmgdddlv0cg"]
 
 [ext_resource type="Script" uid="uid://dfhjryxk5s327" path="res://Objects/Living_Beings/Basic_Fish/basic_fish.gd" id="1_j0047"]
 [ext_resource type="PackedScene" uid="uid://duxy2jyd6a16y" path="res://Systems/Gene_System/diet_gene.tscn" id="2_fpwql"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://de5ddc7cnk6nx" path="res://Systems/Gene_System/fear_gene.tscn" id="5_w6cn4"]
 [ext_resource type="PackedScene" uid="uid://g6ntafs7qjsq" path="res://Systems/Status_Parameter_System/age_status.tscn" id="6_yxso1"]
 [ext_resource type="PackedScene" uid="uid://b3jbyxhuiw6bk" path="res://Systems/Status_Parameter_System/health_status.tscn" id="9_w2bvs"]
+[ext_resource type="Script" uid="uid://dx4gcysly3cyu" path="res://Systems/Organ_System/directional_motion_organ.gd" id="10_0r28a"]
 
 [node name="Basic_Fish" type="CharacterBody2D"]
 script = ExtResource("1_j0047")
@@ -42,3 +43,6 @@ anatomy = NodePath("../../Anatomy")
 [node name="Health_Status" parent="Status_Parameters" instance=ExtResource("9_w2bvs")]
 
 [node name="Organs" type="Node2D" parent="."]
+
+[node name="Directional_Motion_Organ" type="Node" parent="Organs"]
+script = ExtResource("10_0r28a")
