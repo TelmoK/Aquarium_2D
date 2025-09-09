@@ -1,15 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://bdcmgdddlv0cg"]
+[gd_scene load_steps=13 format=3 uid="uid://bdcmgdddlv0cg"]
 
 [ext_resource type="Script" uid="uid://dfhjryxk5s327" path="res://Objects/Living_Beings/Basic_Fish/basic_fish.gd" id="1_j0047"]
 [ext_resource type="PackedScene" uid="uid://duxy2jyd6a16y" path="res://Systems/Gene_System/diet_gene.tscn" id="2_fpwql"]
 [ext_resource type="PackedScene" uid="uid://d1kr2ijxvatkp" path="res://Systems/Living_Being_System/anatomy.tscn" id="2_fquxk"]
 [ext_resource type="Texture2D" uid="uid://dwypq023bwsg5" path="res://Test/test_fish.png" id="2_w2bvs"]
 [ext_resource type="PackedScene" uid="uid://bc3jde060tfl" path="res://Systems/Gene_System/displacement_speed_gene.tscn" id="3_ferr2"]
+[ext_resource type="Script" uid="uid://cycjk0liea165" path="res://Objects/Living_Beings/Basic_Fish/basic_fish_brain.gd" id="4_2ox0h"]
 [ext_resource type="PackedScene" uid="uid://dykuejtnjlnc2" path="res://Systems/Gene_System/longevity_gene.tscn" id="4_muetl"]
 [ext_resource type="PackedScene" uid="uid://de5ddc7cnk6nx" path="res://Systems/Gene_System/fear_gene.tscn" id="5_w6cn4"]
 [ext_resource type="PackedScene" uid="uid://g6ntafs7qjsq" path="res://Systems/Status_Parameter_System/age_status.tscn" id="6_yxso1"]
 [ext_resource type="PackedScene" uid="uid://b3jbyxhuiw6bk" path="res://Systems/Status_Parameter_System/health_status.tscn" id="9_w2bvs"]
 [ext_resource type="Script" uid="uid://dx4gcysly3cyu" path="res://Systems/Organ_System/directional_motion_organ.gd" id="10_0r28a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ox0h"]
 
 [node name="Basic_Fish" type="CharacterBody2D"]
 script = ExtResource("1_j0047")
@@ -23,7 +26,9 @@ genome = NodePath("../Genome")
 status = NodePath("../Status_Parameters")
 organs = NodePath("../Organs")
 
-[node name="Brain" type="Node" parent="."]
+[node name="Brain" type="Node" parent="." node_paths=PackedStringArray("anatomy")]
+script = ExtResource("4_2ox0h")
+anatomy = NodePath("../Anatomy")
 
 [node name="Genome" type="Node" parent="."]
 
@@ -44,5 +49,10 @@ anatomy = NodePath("../../Anatomy")
 
 [node name="Organs" type="Node2D" parent="."]
 
-[node name="Directional_Motion_Organ" type="Node" parent="Organs"]
+[node name="Directional_Motion_Organ" type="Node" parent="Organs" node_paths=PackedStringArray("body")]
 script = ExtResource("10_0r28a")
+body = NodePath("../..")
+water_friction_speed = 1.8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2ox0h")
