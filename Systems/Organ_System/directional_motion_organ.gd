@@ -1,13 +1,18 @@
 class_name DirectionaMotionSystem
 extends Node
 
-@export var body: CharacterBody2D
-
-var current_direction:= Vector2.ZERO
+@export var anatomy: Anatomy
 
 @export var water_friction_speed: float
 
+var body: CharacterBody2D
+
+var current_direction:= Vector2.ZERO
+
 func _ready():
+	assert(anatomy)
+	body = anatomy.body
+	
 	assert(body)
 	body.velocity = current_direction
 

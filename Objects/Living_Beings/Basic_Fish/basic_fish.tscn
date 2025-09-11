@@ -20,7 +20,8 @@ script = ExtResource("1_j0047")
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_w2bvs")
 
-[node name="Anatomy" parent="." node_paths=PackedStringArray("brain", "genome", "status", "organs") instance=ExtResource("2_fquxk")]
+[node name="Anatomy" parent="." node_paths=PackedStringArray("body", "brain", "genome", "status", "organs") instance=ExtResource("2_fquxk")]
+body = NodePath("..")
 brain = NodePath("../Brain")
 genome = NodePath("../Genome")
 status = NodePath("../Status_Parameters")
@@ -49,9 +50,9 @@ anatomy = NodePath("../../Anatomy")
 
 [node name="Organs" type="Node2D" parent="."]
 
-[node name="Directional_Motion_Organ" type="Node" parent="Organs" node_paths=PackedStringArray("body")]
+[node name="Directional_Motion_Organ" type="Node" parent="Organs" node_paths=PackedStringArray("anatomy")]
 script = ExtResource("10_0r28a")
-body = NodePath("../..")
+anatomy = NodePath("../../Anatomy")
 water_friction_speed = 1.8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,7 +1,10 @@
 class_name Anatomy
 extends Node
 
-## The brain of the fish
+## The PhysicsBody2D of the entity (that is the root o the entity)
+@export var body: PhysicsBody2D
+
+## The brain of the entity
 @export var brain: Node
 
 ## The container node that contains the Gene objects

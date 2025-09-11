@@ -11,8 +11,6 @@
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(321, 452)
 zoom = Vector2(1.76, 1.76)
-limit_top = 0
-limit_bottom = 660
 limit_smoothed = true
 
 [node name="Camera_Control" type="Node" parent="Camera2D" node_paths=PackedStringArray("camera")]
@@ -31,6 +29,9 @@ modulate = Color(0.423651, 0.423651, 0.42365, 1)
 position = Vector2(581, 652)
 scale = Vector2(18.25, 2.04)
 texture = ExtResource("2_d38du")
+
+[node name="Basic_Fish3" parent="Depth_System/Depth_Layer_05" instance=ExtResource("5_0s61m")]
+position = Vector2(526, 480)
 
 [node name="Depth_Layer_04" type="Node2D" parent="Depth_System"]
 
@@ -80,5 +81,8 @@ position = Vector2(581, 652)
 scale = Vector2(18.25, 2.04)
 texture = ExtResource("2_d38du")
 
-[node name="Basic_Fish" parent="." instance=ExtResource("5_0s61m")]
+[node name="Basic_Fish2" parent="Depth_System/Depth_Layer_00" instance=ExtResource("5_0s61m")]
+position = Vector2(287, 509)
+
+[node name="Basic_Fish" parent="Depth_System/Depth_Layer_00" instance=ExtResource("5_0s61m")]
 position = Vector2(415, 443)
