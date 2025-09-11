@@ -10,6 +10,21 @@ var depth_scaling: float = 0.94
 ## The array index that belongs to the current depth layer
 var camera_depth_idex: int = 0
 
+var depth_objects: Array[DepthObject]
+
+func load_depth_elements():
+	var layer_indx = 0
+	
+	for depth_layer_node in depth_layers:
+		for layered_object in depth_layer_node.get_children():
+			var depth_object: DepthObject = utils.pick_node(layered_object, DepthObject)
+			if depth_object:
+				depth_object.depth_system = self
+				depth_object.depth_layer = layer_indx
+				depth_objects.append(depth_object)
+		
+		layer_indx += 1
+
 
 func scale_layers():
 	for i in range(0, depth_layers.size()):
@@ -80,6 +95,7 @@ func handle_x_axis_parallax(delta: float):
 
 
 func _ready():
+	load_depth_elements()
 	scale_layers()
 
 

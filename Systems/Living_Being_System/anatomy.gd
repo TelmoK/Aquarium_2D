@@ -17,6 +17,10 @@ extends Node
 @export var organs: Node
 
 func _ready():
+	if not body:
+		body = get_parent()
+		print("Auto assignment of the Body of the Anatomy Component")
+	
 	assert(brain, "Anatomy has no access to the Brain")
 	assert(genome, "Anatomy has no access to the Genome")
 	assert(status, "Anatomy has no access to the Status")

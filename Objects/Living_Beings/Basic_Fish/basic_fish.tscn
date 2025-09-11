@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bdcmgdddlv0cg"]
+[gd_scene load_steps=14 format=3 uid="uid://bdcmgdddlv0cg"]
 
 [ext_resource type="Script" uid="uid://dfhjryxk5s327" path="res://Objects/Living_Beings/Basic_Fish/basic_fish.gd" id="1_j0047"]
 [ext_resource type="PackedScene" uid="uid://duxy2jyd6a16y" path="res://Systems/Gene_System/diet_gene.tscn" id="2_fpwql"]
 [ext_resource type="PackedScene" uid="uid://d1kr2ijxvatkp" path="res://Systems/Living_Being_System/anatomy.tscn" id="2_fquxk"]
+[ext_resource type="Script" uid="uid://cj44jf1efa3qu" path="res://Systems/Depth_System/depth_object.gd" id="2_pf8wf"]
 [ext_resource type="Texture2D" uid="uid://dwypq023bwsg5" path="res://Test/test_fish.png" id="2_w2bvs"]
 [ext_resource type="PackedScene" uid="uid://bc3jde060tfl" path="res://Systems/Gene_System/displacement_speed_gene.tscn" id="3_ferr2"]
 [ext_resource type="Script" uid="uid://cycjk0liea165" path="res://Objects/Living_Beings/Basic_Fish/basic_fish_brain.gd" id="4_2ox0h"]
@@ -16,6 +17,9 @@
 
 [node name="Basic_Fish" type="CharacterBody2D"]
 script = ExtResource("1_j0047")
+
+[node name="Depth_Object" type="Node" parent="."]
+script = ExtResource("2_pf8wf")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_w2bvs")

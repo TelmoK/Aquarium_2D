@@ -37,4 +37,3 @@ func _process(delta):
 		time_left = 2
 	
 	time_left -= delta
-	print(anatomy.get_parent().global_position)
