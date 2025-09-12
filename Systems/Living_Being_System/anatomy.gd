@@ -4,6 +4,9 @@ extends Node
 ## The PhysicsBody2D of the entity (that is the root o the entity)
 @export var body: PhysicsBody2D
 
+## The DepthObject component node of the entity
+@export var depth_object: DepthObject
+
 ## The brain of the entity
 @export var brain: Node
 
@@ -21,6 +24,7 @@ func _ready():
 		body = get_parent()
 		print("Auto assignment of the Body of the Anatomy Component")
 	
+	assert(depth_object, "Anatomy has no access to the DepthObject component")
 	assert(brain, "Anatomy has no access to the Brain")
 	assert(genome, "Anatomy has no access to the Genome")
 	assert(status, "Anatomy has no access to the Status")

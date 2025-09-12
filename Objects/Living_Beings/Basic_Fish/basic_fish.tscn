@@ -24,8 +24,9 @@ script = ExtResource("2_pf8wf")
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_w2bvs")
 
-[node name="Anatomy" parent="." node_paths=PackedStringArray("body", "brain", "genome", "status", "organs") instance=ExtResource("2_fquxk")]
+[node name="Anatomy" parent="." node_paths=PackedStringArray("body", "depth_object", "brain", "genome", "status", "organs") instance=ExtResource("2_fquxk")]
 body = NodePath("..")
+depth_object = NodePath("../Depth_Object")
 brain = NodePath("../Brain")
 genome = NodePath("../Genome")
 status = NodePath("../Status_Parameters")

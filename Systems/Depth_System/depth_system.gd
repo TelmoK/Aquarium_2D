@@ -5,6 +5,7 @@ extends Node2D
 
 @export var depth_layers: Array[Node2D]
 
+## The times the scale is reduced per layer
 var depth_scaling: float = 0.94
 
 ## The array index that belongs to the current depth layer
@@ -21,6 +22,7 @@ func load_depth_elements():
 			if depth_object:
 				depth_object.depth_system = self
 				depth_object.depth_layer = layer_indx
+				depth_object.update_depth_scale()
 				depth_objects.append(depth_object)
 		
 		layer_indx += 1

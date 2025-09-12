@@ -14,11 +14,11 @@ func _ready():
 	body = anatomy.body
 	
 	assert(body)
-	body.velocity = current_direction
+	body.velocity = current_direction * anatomy.depth_object.depth_scale
 
 
 func set_vecolity(velocity: Vector2):
-	body.velocity = velocity
+	body.velocity = velocity * anatomy.depth_object.depth_scale
 
 
 func set_direction(direction: Vector2):
@@ -31,11 +31,11 @@ func set_direction(direction: Vector2):
 
 
 func set_speed(speed: float):
-	body.velocity = body.velocity.normalized() * speed
+	body.velocity = body.velocity.normalized() * speed * anatomy.depth_object.depth_scale
 
 
 func apply_water_friction():
-	var total_speed = body.velocity.length() - water_friction_speed
+	var total_speed = body.velocity.length() - water_friction_speed * anatomy.depth_object.depth_scale
 	
 	if total_speed < 0:
 		total_speed = 0
