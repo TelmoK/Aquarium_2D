@@ -13,7 +13,7 @@ var depth_layer: int = 0
 var depth_scale: float
 
 func update_depth_scale():
-	depth_scale = pow(depth_system.depth_scaling, depth_layer)
+	depth_scale = depth_system.get_layer_scale(depth_layer)
 
 
 func _ready():

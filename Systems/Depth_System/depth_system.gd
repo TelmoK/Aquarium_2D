@@ -28,6 +28,12 @@ func load_depth_elements():
 		layer_indx += 1
 
 
+## Returns the desired scale of a Depth Layer according to its index
+func get_layer_scale(layer_index: int) -> float:
+	return pow(depth_scaling, layer_index)
+
+
+# TEMP
 func scale_layers():
 	for i in range(0, depth_layers.size()):
 		depth_layers[i].modulate = Color(1, 1, 1, 0)
@@ -35,7 +41,7 @@ func scale_layers():
 		if i >= camera_depth_idex:
 			depth_layers[i].modulate = Color(1, 1, 1, 1)
 			
-		depth_layers[i].scale = (Vector2(1, 1) * pow(depth_scaling, i - camera_depth_idex))
+		depth_layers[i].scale = (Vector2(1, 1) * get_layer_scale(i - camera_depth_idex))
 
 
 func lerped_layer_scale(layer_inex: int, from: float, to: float, weight: float = 1):
@@ -73,7 +79,7 @@ func handle_depth_change_events(delta: float):
 		lerped_layer_scale(
 			i, 
 			depth_layers[i].scale.x, 
-			pow(depth_scaling, i - camera_depth_idex),
+			get_layer_scale(i - camera_depth_idex),
 			1 * delta
 			)
 		handle_layer_visibility(i, delta)
